@@ -1,0 +1,33 @@
+<head>
+  <meta charset="UTF-8">
+  <title>CO2 Emission Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<div class="login">
+    <h1>Failure prediction of equipment</h1>
+    <h3>Enter the following values to predict the failure type</h3>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict') }}" method="post">
+        <input type="text" name="Type" placeholder="Type" required="required" />
+        <input type="text" name="Air temperature [C]" placeholder="Air temperature [C]" required="required" />
+        <input type="text" name="Process temperature [C]" placeholder="Process temperature [C]" required="required" />
+ <input type="text" name="Rotational speed [rpm]" placeholder="Rotational speed [rpm]" required="required" /> 
+ <input type="text" name="Torque [Nm]" placeholder="Torque [Nm]" required="required" />
+ <input type="text" name="Tool wear [min]" placeholder="Tool wear [min]" required="required" />
+ <input type="text" name="rag1" placeholder="rag1" required="required" />
+ <input type="text" name="rag2" placeholder="rag2" required="required" />
+        
+<button type="submit" class="btn">Predict</button>
+    </form>
+
+    <br>
+    <br>
+    {{ prediction_text }}
+</div>
